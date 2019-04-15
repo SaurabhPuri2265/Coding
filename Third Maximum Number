@@ -1,0 +1,18 @@
+class Solution {
+    public int thirdMax(int[] nums) {
+        long[] a={Long.MIN_VALUE,Long.MIN_VALUE,Long.MIN_VALUE};
+        for(int i:nums){
+            if(i>a[0]){
+                a[2]=a[1];
+                a[1]=a[0];
+                a[0]=i;
+            } else if(i>a[1] && i<a[0]){
+                a[2]=a[1];
+                a[1]=i;
+            }else if(i>a[2] && i<a[1]){
+                a[2]=i;
+            }
+        }
+        return (int) (a[2]==Long.MIN_VALUE?a[0]:a[2]);
+    }
+}
