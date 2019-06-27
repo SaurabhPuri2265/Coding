@@ -1,0 +1,28 @@
+class Solution {
+    public boolean containsDuplicate(int[] arr) {
+        int t=0;
+	boolean t1=false;
+	for(int i=0;i<arr.length;i++)
+	{
+		t=arr[i];
+		for(int j=i+1;j<arr.length;j++)
+		{
+			if(t==arr[j])
+			{
+				t1=true;
+				break;
+			}
+			
+		}
+		if(t1==true)
+		{
+			break;
+		}
+	}
+	if(t1==true)
+		return true;
+	else
+		return false;
+        
+    }
+}
