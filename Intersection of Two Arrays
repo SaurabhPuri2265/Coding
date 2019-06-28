@@ -1,0 +1,30 @@
+class Solution {
+    public int[] intersect(int[] a, int[] a1) {
+        int[] a2=new int[a.length];
+	 	Arrays.sort(a);
+	 	Arrays.sort(a1);
+	 	
+	 	
+	 	int i=0,j=0,c=0;
+	 	
+	 	while(i<a.length && j<a1.length)
+	 	{
+	 		if(a[i]==a1[j])
+	 		{
+	 			a2[c]=a[i];
+	 			c++;
+	 			i++;
+	 			j++;
+	 		}
+	 		else if(a[i]<a1[j])
+	 		{
+	 			i++;
+	 		}
+	 		else
+	 			j++;
+	 			
+	 	}
+	 	//System.out.println(Arrays.toString(a2));
+	 	return Arrays.copyOf(a2, c);
+        
+    }}
