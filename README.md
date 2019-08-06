@@ -1,2 +1,2 @@
-# Code-a-thon
+# CODING 
 Coding Questions Practised on Regular Basis
