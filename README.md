@@ -2,4 +2,7 @@
 
 
 **6-08-2019**
-palindromic number on leetcode along with stl string class in c++
+
+## Read about interfaces and abstract classes in java
+
+## Learnt comparator function , vectors, pairs and HashMaps 
