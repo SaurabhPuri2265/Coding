@@ -4,7 +4,7 @@
 ## 08-08-2019
 
 **Reverse Integer**
--[Sol](https://github.com/SaurabhPuri2265/Coding/blob/master/Reverse%20Integer/Sol.txt)
+- [Sol](https://github.com/SaurabhPuri2265/Coding/blob/master/Reverse%20Integer/Sol.txt)
 
 **Remove Element**
 - [Sol](https://github.com/SaurabhPuri2265/Coding/blob/master/Remove%20element/sol.txt)
