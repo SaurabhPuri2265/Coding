@@ -12,8 +12,6 @@
 **Remove Element**
 - [Sol](https://github.com/SaurabhPuri2265/Coding/tree/master/Remove%20duplicate)
 
-**Palindrome**
-- [Sol](https://github.com/SaurabhPuri2265/Coding/blob/master/palindrome/palindrome.txt)
 
 
 **Java**
@@ -22,8 +20,10 @@
 - [Interfaces](https://www.geeksforgeeks.org/interfaces-in-java/)
 
 
+## 06-08-2019
 
-
+**Palindrome**
+- [Sol](https://github.com/SaurabhPuri2265/Coding/blob/master/palindrome/palindrome.txt)
 
 
 
