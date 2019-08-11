@@ -1,6 +1,11 @@
 # CODING
 
 
+## 11-08-2019
+
+**Implement Strstr**
+- [Solved Using Substring function](https://github.com/SaurabhPuri2265/Coding/blob/master/Implement%20StrStr()/Sol.txt)
+
 ## 08-08-2019
 
 **Reverse Integer**
