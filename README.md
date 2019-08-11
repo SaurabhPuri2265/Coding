@@ -6,6 +6,9 @@
 **Implement Strstr**
 - [Solved Using Substring function](https://github.com/SaurabhPuri2265/Coding/tree/master/Implement%20StrStr())
 
+**Longest common prefix**
+- [Using O(n^2)](https://github.com/SaurabhPuri2265/Coding/tree/master/longest%20common%20prefix)
+
 ## 08-08-2019
 
 **Reverse Integer**
