@@ -4,6 +4,7 @@
 ## 11-08-2019
 
 
+
 **Problem**
 
 Write a function to find the longest common prefix string amongst an array of strings.
