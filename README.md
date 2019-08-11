@@ -4,7 +4,7 @@
 ## 11-08-2019
 
 **Implement Strstr**
-- [Solved Using Substring function](https://github.com/SaurabhPuri2265/Coding/blob/master/Implement%20StrStr()/Sol.txt)
+- [Solved Using Substring function](https://github.com/SaurabhPuri2265/Coding/tree/master/Implement%20StrStr())
 
 ## 08-08-2019
 
