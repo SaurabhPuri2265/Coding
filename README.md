@@ -1,5 +1,15 @@
 # CODING
 
+## 14-08-2019
+
+**Search Insert Position**
+- [By Comparing the Target with the Array elements in O(n)](https://github.com/SaurabhPuri2265/Coding/tree/master/Search%20Insert%20Position)
+
+**Delete Node in a Linked List**
+- [By Removing the links of the Node to be deleted](https://github.com/SaurabhPuri2265/Coding/tree/master/Delete%20Node%20in%20a%20linked%20list)
+
+**Remove Duplicate from linked list**
+- [By removing the links of nodes with repeated or duplicate values](https://github.com/SaurabhPuri2265/Coding/tree/master/Remove%20duplicate%20from%20linked%20list)
 
 ## 11-08-2019
 
