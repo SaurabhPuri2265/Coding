@@ -1,0 +1,33 @@
+class Solution {
+    public boolean isPalindrome(ListNode head) {
+        Vector<Integer> arr=new Vector<>();
+        
+        //ListNode curr=head;
+        
+        if(head==null)
+            return true;
+       
+        
+        while(head!=null)
+        {
+            arr.add(head.val);
+            head=head.next;    
+        }
+        
+        int i=0,j=arr.size()-1;
+        int n1,n2;
+        
+        while(i<j)
+        {
+            n1=arr.get(i);
+            n2=arr.get(j);
+            if(n1!=n2)
+                return false;
+            
+            i++;
+            j--;
+        }
+       
+        return true;
+    }
+}
