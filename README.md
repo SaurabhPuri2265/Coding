@@ -3,10 +3,10 @@
 ## 16-08-2019
 
 **Merge two sorted linked lists**
--[Using two dummy nodes and sorting iteratively](https://github.com/SaurabhPuri2265/Coding/tree/master/Merge%20two%20linked%20lists)
+- [Using two dummy nodes and sorting iteratively](https://github.com/SaurabhPuri2265/Coding/tree/master/Merge%20two%20linked%20lists)
 
 **Remove linked list elements**
--[Maintaing two nodes prev=null and curr=head for removing the element](https://github.com/SaurabhPuri2265/Coding/tree/master/Remove%20linked%20list%20elements)
+- [Maintaing two nodes prev=null and curr=head for removing the element](https://github.com/SaurabhPuri2265/Coding/tree/master/Remove%20linked%20list%20elements)
 
 **Reverse linked list**
 - [Maintaning 3 nodes prev,curr and temp and changing the links between the nodes](https://github.com/SaurabhPuri2265/Coding/tree/master/reverse%20linked%20list)
