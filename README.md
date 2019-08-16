@@ -2,6 +2,9 @@
 
 ## 16-08-2019
 
+**Middle Element of a Linked list**
+- [Maintaining Slow and Fast pointers such that slow pointer returns the middle of the list](https://github.com/SaurabhPuri2265/Coding/tree/master/Middle%20element%20of%20linked%20list)
+
 **Merge two sorted linked lists**
 - [Using two dummy nodes and sorting iteratively](https://github.com/SaurabhPuri2265/Coding/tree/master/Merge%20two%20linked%20lists)
 
