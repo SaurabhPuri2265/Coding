@@ -1,5 +1,13 @@
 # CODING
 
+## 18-08-2019
+
+**Swap Nodes in Pairs**
+- [By Using two Dummy nodes making one the next of first and one of the head](https://github.com/SaurabhPuri2265/Coding/tree/master/Swap%20Nodes%20In%20pairs)
+
+**Delete Nth node from the end**
+- [By maintaing slow and fast pointers having a seperation of n nodes between them](https://github.com/SaurabhPuri2265/Coding/tree/master/Delete%20Nth%20node%20from%20the%20end)
+
 ## 16-08-2019
 
 **Middle Element of a Linked list**
