@@ -4,7 +4,6 @@
 
 **Contains Duplicate**
 - [By First Sorting the Array and then check for the consecutive duplicates and return true or false](https://github.com/SaurabhPuri2265/Coding/blob/master/contains%20duplicate)
--
 
 **Merge Sorted Array**
 - [By inserting elements into the bigger Array and applying sort function](https://github.com/SaurabhPuri2265/Coding/blob/master/Merge%20Sorted%20Array)
