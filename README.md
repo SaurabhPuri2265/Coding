@@ -1,5 +1,19 @@
 # CODING
 
+## 21-08-2019
+
+**Contains Duplicate**
+- [By First Sorting the Array and then check for the consecutive duplicates and return true or false](https://github.com/SaurabhPuri2265/Coding/blob/master/contains%20duplicate)
+-
+
+**Merge Sorted Array**
+- [By inserting elements into the bigger Array and applying sort function](https://github.com/SaurabhPuri2265/Coding/blob/master/Merge%20Sorted%20Array)
+
+## 20-08-2019
+
+**Remove Duplicate From Sorted Array**
+- [By Using a new variable count for reassignment of array elements in O(n)](https://github.com/SaurabhPuri2265/Coding/blob/master/Remove%20Duplicate%20from%20Sorted%20Array)
+
 ## 18-08-2019
 
 **Swap Nodes in Pairs**
