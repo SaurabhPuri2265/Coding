@@ -1,5 +1,16 @@
 # CODING
 
+## 26-08-2019
+
+**JAVA TOPICS**
+- [What is “String args”? parameter in main method Java](https://stackoverflow.com/questions/890966/what-is-string-args-parameter-in-main-method-java)
+- [How is Java platform independent?](https://www.geeksforgeeks.org/java-platform-independent)
+- [Does JVM create object of Main class](https://www.geeksforgeeks.org/jvm-create-object-main-class-class-contains-main/)
+- [Do we need forward declarations in Java?](https://www.geeksforgeeks.org/do-we-need-forward-declarations-in-java/)
+- [https://www.geeksforgeeks.org/do-we-need-forward-declarations-in-java/](https://www.geeksforgeeks.org/blank-final-in-java/)
+- [Type conversion in Java with Examples](https://www.geeksforgeeks.org/type-conversion-java-examples/)
+
+
 ## 21-08-2019
 
 **Contains Duplicate**
