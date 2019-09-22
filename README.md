@@ -1,5 +1,9 @@
 # CODING
 
+## 22-9-2019
+
+- [Valid paranthesis using stack](https://github.com/SaurabhPuri2265/Coding/tree/master/valid%20paranthesis)
+
 ## 26-08-2019
 
 **JAVA TOPICS**
