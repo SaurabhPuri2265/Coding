@@ -2,7 +2,7 @@
 
 **Questions From LeetCode and GeekForGeeks**
 
-- Coding Practice and Revision of DS and ALGO***
+- Coding Practice and Revision of DS and ALGO
 
 **References**
 
