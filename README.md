@@ -1,7 +1,5 @@
 # CODING
 
-***Author-Saurabh Puri***
-
 **Questions From LeetCode and GeekForGeeks**
 
 - Coding Practice and Revision of DS and ALGO
