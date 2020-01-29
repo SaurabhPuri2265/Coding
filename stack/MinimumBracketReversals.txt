@@ -1,0 +1,41 @@
+Minimum number of bracket reversals needed to make an expression balanced
+
+package minrev;
+import java.util.Stack;
+public class MinRev {
+    static int Reversal(String exp)
+    {
+        int count=0;  
+        char c;
+        Stack<Character> s=new Stack<>();
+        
+        if(exp.length()%2!=0)
+            return -1;
+        //To remove balanced paranthesis
+        for(int i=0;i<exp.length();i++)
+        {  
+            c=exp.charAt(i);
+            if(c=='}' && !s.isEmpty())
+            {
+                if(s.peek()=='{')
+                    s.pop();
+                else
+                    s.push(c);
+            }
+            else
+                s.push(c);
+        }
+        
+        double m=0,n=0;
+        while(!s.isEmpty())
+        {
+            if(s.pop()=='}')
+                m++;
+            else
+                n++;
+        }
+        
+        count=(int)(Math.ceil(m/2)+Math.ceil(n/2));
+        
+        return count;
+    }

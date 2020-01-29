@@ -1,0 +1,46 @@
+
+package reduntant;
+import java.util.*;
+
+public class Reduntant {
+
+    static boolean ifPresent(String exp)
+    {
+        Stack<Character> s=new Stack<>();
+        boolean flag=true;
+        char top;
+        for(char c:exp.toCharArray())
+        {
+            if(c==')')
+            {
+                top=s.pop();
+                flag=true;
+                //CHecking if a operator is found or not
+                while(top!='(')
+                {
+                    if(top=='+' || top=='-' || top=='*' || top=='/')
+                        flag=false;
+                    
+                    top=s.pop();
+                }
+                if(flag==true)
+                    return true;
+            }
+            else
+                s.push(c);
+        }      
+        return false;
+    }
+    public static void main(String[] args) {
+        // TODO code application logic here
+         String str = "((a+b))"; 
+        System.out.println(ifPresent(str));
+  
+        str = "(a+(b)/c)"; 
+        System.out.println(ifPresent(str));
+  
+        str = "(a+b*(c-d))"; 
+        System.out.println(ifPresent(str));
+    }
+    
+}
