@@ -1,0 +1,74 @@
+Input : Queue[] = { 5, 1, 2, 3, 4 }
+Output : Yes
+Pop the first element of the given Queue i.e 5.
+Push 5 into the stack.
+Now, pop all the elements of the given Queue and push them to
+second Queue.
+Now, pop element 5 in the stack and push it to the second Queue.
+ 
+Input : Queue[] = { 5, 1, 2, 6, 3, 4 }
+Output : No
+Push 5 to stack.
+Pop 1, 2 from given Queue and push it to another Queue.
+Pop 6 from given Queue and push to stack.
+Pop 3, 4 from given Queue and push to second Queue.
+Now, from using any of above operation, we cannot push 5
+into the second Queue because it is below the 6 in the stack.
+
+
+
+
+package checkifqueuecanbesortedusingstack;
+import java.util.*;
+
+public class CheckIfQueueCanbeSortedUsingStack {
+
+    static Queue<Integer> q;
+    static boolean CheckSorted(int n)
+    {
+        Stack<Integer> s=new Stack<>();
+        int top;
+        int expected=1;
+        while(!q.isEmpty())
+        {
+            top=q.remove();
+            if(top==expected)
+                expected++;
+            else
+            {
+                if(s.isEmpty())
+                    s.add(top);
+                else if(s.peek()<q.poll())
+                    return false;
+                else
+                    s.push(top);
+            }
+        }
+        while(!s.isEmpty() && s.peek()==expected)
+        {
+            s.pop();
+            expected--;
+        }
+        if(expected+1==n && s.size()==0)
+            return true;
+        return false;
+        
+    }
+    public static void main(String[] args) {
+        // TODO code application logic here
+        q=new LinkedList<Integer>();
+        q.add(5); 
+        q.add(1); 
+        q.add(2); 
+        q.add(3); 
+        q.add(4); 
+      
+        int n = q.size(); 
+  
+        if (CheckSorted(n)) 
+            System.out.print("Yes"); 
+        else
+            System.out.print("No");
+    }
+    
+}
