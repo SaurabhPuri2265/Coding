@@ -1,0 +1,94 @@
+Find the largest multiple of 3 | Set 1 (Using Queue)
+Given an array of non-negative integers. Find the largest multiple of 3 that can be formed from array elements.
+For example, if the input array is {8, 1, 9}, the output should be “9 8 1”, and if the input array is {8, 1, 7, 6, 0}, output should be “8 7 6 0”.
+
+package largestmultipleof3;
+import java.util.*;
+
+public class LargestMultipleOf3 {
+
+    static boolean LarMul(int arr[])
+    {
+        Queue<Integer> q0=new LinkedList<>();
+        Queue<Integer> q1=new LinkedList<>();
+        Queue<Integer> q2=new LinkedList<>();
+        
+        Arrays.sort(arr);
+        
+        int sum=0;
+        
+        for(int i=0;i<arr.length;i++)
+        {
+            sum+=arr[i];
+            if(arr[i]%3==0)
+                q0.add(arr[i]);
+            else if(arr[i]%3==1)
+                q1.add(arr[i]);
+            else if(arr[i]%3==2)
+                q2.add(arr[i]);
+            
+        }
+        if(sum%3==1)
+        {
+            if(!q1.isEmpty())
+                q1.remove();
+            else
+            {
+                if(!q2.isEmpty())
+                    q2.remove();
+                else
+                    return false;
+                if(!q2.isEmpty())
+                    q2.remove();
+                else
+                    return false;
+            }
+        }
+        if(sum%3==2)
+        {
+            if(!q2.isEmpty())
+                q2.remove();
+            else
+            {
+                if(!q1.isEmpty())
+                    q1.remove();
+                else
+                    return false;
+                if(!q1.isEmpty())
+                    q1.remove();
+                else
+                    return false;
+            }
+        }
+        
+        int[] aux=new int[arr.length];
+        int top=populate(aux,q0,q1,q2);
+      
+        Arrays.sort(aux,0,top);
+        for(int i=top-1;i>-1;i--)
+            System.out.print(aux[i]+" ");
+        
+        return true;
+    }
+    
+    static int populate(int[] aux,Queue<Integer> q0,Queue<Integer> q1,Queue<Integer> q2)
+    {
+        int top=0;
+        while(!q0.isEmpty())
+            aux[top++]=q0.remove();
+        while(!q1.isEmpty())
+            aux[top++]=q1.remove();
+        while(!q2.isEmpty())
+            aux[top++]=q2.remove();
+        
+        return top;
+    }
+    public static void main(String[] args) {
+        // TODO code application logic here
+        int arr[] = { 8, 1, 7, 6, 0 };
+        if(!LarMul(arr));
+            System.out.println("No Number Exists");
+    }
+    
+}
+
