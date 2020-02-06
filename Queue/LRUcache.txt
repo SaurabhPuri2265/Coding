@@ -1,0 +1,76 @@
+LRU Cache Implementation
+We use two data structures to implement an LRU Cache.
+
+Queue which is implemented using a doubly linked list. The maximum size of the queue will be equal to the total number of frames available (cache size).
+The most recently used pages will be near front end and least recently pages will be near the rear end.
+A Hash with page number as key and address of the corresponding queue node as value.
+
+
+When a page is referenced, the required page may be in the memory. If it is in the memory, we need to detach the node of the list and bring it to the front of the queue.
+If the required page is not in memory, we bring that in memory. 
+In simple words, we add a new node to the front of the queue and update the corresponding node address in the hash.
+If the queue is full, i.e. all the frames are full,
+we remove a node from the rear of the queue, and add the new node to the front of the queue.
+
+package lru;
+
+import java.util.*;
+
+public class LRU {
+    static Deque<Integer> dq;
+    static HashSet<Integer> m;
+    static int csize;
+    LRU(int n){
+        dq=new LinkedList<Integer>();
+        m=new HashSet<Integer>();
+        csize=n;
+    }
+    
+    public void refer(int n)
+    {
+        if(!m.contains(n))
+        {
+          if(dq.size()==csize)
+          {
+              m.remove(dq.removeLast());
+          }
+          m.add(n);
+          dq.addFirst(n);
+        }
+        else
+        {
+            while(dq.peekLast()!=n)
+                dq.addFirst(dq.removeLast());
+            if(dq.peekLast()==n)
+                dq.removeLast();
+            dq.addFirst(n);
+        }
+    }
+    
+     public void display() 
+    { 
+        Iterator<Integer> itr = dq.iterator(); 
+        while (itr.hasNext()) { 
+            System.out.print(itr.next() + " "); 
+        } 
+    }
+    
+    public static void main(String[] args) {
+        // TODO code application logic here
+         LRU ca = new LRU(3); 
+        ca.refer(1); 
+        ca.refer(2); 
+        ca.refer(3); 
+        ca.refer(4); 
+        ca.refer(1); 
+        ca.refer(2);
+        ca.refer(5);
+        ca.refer(1);
+        ca.refer(2);
+        ca.refer(3);
+        ca.refer(4);
+        ca.refer(5);
+        ca.display();
+    }
+    
+}

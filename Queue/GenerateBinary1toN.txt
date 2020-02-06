@@ -1,0 +1,33 @@
+
+package generatebinarybyqueue;
+
+import java.util.*;
+
+public class GenerateBinaryByQueue {
+
+    static Vector<String> GenBin(int n)
+    {
+        Queue<String> q=new LinkedList<>();
+        Vector<String> v=new Vector<>();
+        q.add("1");
+        String temp="",temp2="";
+        boolean flag=true;
+        while(n-->0)
+        {
+            temp=q.remove();
+            v.add(temp);
+            q.add(temp+"0");
+            q.add(temp+"1");  
+        }
+        return v;
+        
+    }
+    public static void main(String[] args) {
+        // TODO code application logic here
+        int n=5;
+        Vector<String> v=new Vector<>();
+        v=GenBin(n);
+        System.out.println(v);
+    }
+    
+}
