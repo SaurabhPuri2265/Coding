@@ -1,0 +1,32 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public boolean findTarget(TreeNode root, int k) {
+        if(root==null)
+            return false;
+        
+        HashSet<Integer> h=new HashSet<>();
+        
+        return TwoSum(root,k,h);
+        
+    }
+    
+    public boolean TwoSum(TreeNode root,int k,HashSet<Integer> h)
+    {
+        if(root==null)
+            return false;
+        
+        if(h.contains(k-root.val))
+            return true;
+        h.add(root.val);
+        return TwoSum(root.left,k,h) || TwoSum(root.right,k,h);
+        
+    }
+}

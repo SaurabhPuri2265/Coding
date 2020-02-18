@@ -1,0 +1,41 @@
+Given the root node of a binary search tree, return the sum of values of all nodes with value between L and R (inclusive).
+
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public int rangeSumBST(TreeNode root, int L, int R) {
+        TreeNode sum=new TreeNode(0);
+        if(root==null)
+            return sum.val;
+        
+        Calsum(root,sum,L,R);
+        
+        return sum.val;
+        
+    }
+    
+    public void Calsum(TreeNode root,TreeNode sum,int L,int R)
+    {
+       if(root==null)
+           return;
+        
+        if(L<=root.val && root.val<=R)
+            sum.val=sum.val+root.val;
+        
+        System.out.println(root.val+":"+sum);
+                
+        if(root.left!=null)
+            Calsum(root.left,sum,L,R);
+        if(root.right!=null)
+            Calsum(root.right,sum,L,R);
+        
+        
+    }
+}
