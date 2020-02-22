@@ -1,0 +1,116 @@
+
+Given a binary tree, print it vertically. The following example illustrates vertical order traversal.
+           1
+        /    \
+       2      3
+      / \    / \
+     4   5  6   7
+             \   \
+              8   9 
+               
+              
+The output of print this tree vertically will be:
+4
+2
+1 5 6
+3 8
+7
+9 
+
+import java.util.*;
+
+
+
+public class VerticalTraversalTree {
+    
+   
+   static class Node  
+{ 
+    int data; 
+    Node left, right; 
+   
+    Node(int item)  
+    { 
+        data = item; 
+        left = right = null; 
+    } 
+}  
+   
+   static class Pair{
+       Node n;
+       int level;
+       Pair(Node n,int level)
+       {
+           this.n=n;
+           this.level=level;
+       }
+   }
+   
+   
+     Node root; 
+    //Values val = new Values(); 
+    void VerticalOrder(Node root)
+    {
+        Queue<Pair> q=new LinkedList<>();
+        int lvl=0;
+        HashMap<Integer,ArrayList<Integer>> h=new HashMap<>();
+        ArrayList<Integer> temp;
+        if(root==null)
+        {
+            System.out.println("Null");
+            return;
+        }
+        q.add(new Pair(root,lvl));
+        
+        Pair p;
+        
+        while(!q.isEmpty())
+        {
+            p=q.remove();
+            if(p.n.left!=null)
+                q.add(new Pair(p.n.left,p.level-1));
+            if(p.n.right!=null)
+                q.add(new Pair(p.n.right,p.level+1));
+            
+            if(!h.containsKey(p.level))
+            {
+                ArrayList<Integer> arr=new ArrayList<>();
+                arr.add(p.n.data);
+                h.put(p.level, arr);
+                
+            }
+            else
+            {
+                temp=h.get(p.level);
+                temp.add(p.n.data);
+                h.replace(p.level, temp);
+            }
+            
+        }
+        
+        for(Map.Entry<Integer,ArrayList<Integer>> entry:h.entrySet())
+        {
+            System.out.println(entry.getValue());
+        }
+    }
+
+    
+    public static void main(String[] args) {
+        VerticalTraversalTree tree = new VerticalTraversalTree(); 
+   
+        /* Let us construct the tree shown in above diagram */
+        tree.root = new Node(1); 
+        tree.root.left = new Node(2); 
+        tree.root.right = new Node(3); 
+        tree.root.left.left = new Node(4); 
+        tree.root.left.right = new Node(5); 
+        tree.root.right.left = new Node(6); 
+        tree.root.right.right = new Node(7); 
+        tree.root.right.left.right = new Node(8); 
+        tree.root.right.right.right = new Node(9); 
+   
+        System.out.println("vertical order traversal is :"); 
+        tree.VerticalOrder(tree.root); 
+    }
+    
+}
