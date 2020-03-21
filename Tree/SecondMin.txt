@@ -1,0 +1,38 @@
+Given a non-empty special binary tree consisting of nodes with the non-negative value, 
+where each node in this tree has exactly two or zero sub-node. If the node has two sub-nodes, 
+then this node's value is the smaller value among its two sub-nodes.
+ More formally, the property root.val = min(root.left.val, root.right.val) always holds.
+
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public int findSecondMinimumValue(TreeNode root) {
+        LinkedList<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        int firstMin = root.val;
+        int secondMin = Integer.MAX_VALUE;
+        while (!queue.isEmpty()) {
+            TreeNode node = queue.poll();
+            if (node.val > firstMin && node.val <= secondMin) {
+                secondMin = node.val;
+                continue;
+            }
+            
+            if (node.left != null) {
+                queue.add(node.left);
+            }
+            if (node.right != null) {
+                queue.add(node.right);
+            }
+        }
+        
+        return secondMin > Integer.MAX_VALUE ? -1 : secondMin;
+    }
+}
