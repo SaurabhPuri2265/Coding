@@ -1,0 +1,49 @@
+Given a binary search tree (BST) with duplicates, find all the mode(s) (the most frequently occurred element) in the given BST.
+
+Assume a BST is defined as follows:
+
+The left subtree of a node contains only nodes with keys less than or equal to the node's key.
+The right subtree of a node contains only nodes with keys greater than or equal to the node's key.
+Both the left and right subtrees must also be binary search trees.
+
+class Solution {
+    public int[] findMode(TreeNode root) {
+       HashMap<Integer,Integer> map=new HashMap<>();
+        HashSet<Integer> set=new HashSet<>();
+        int maxfreq=0;
+        
+        Traverse(root,map);
+        
+        for(Map.Entry<Integer,Integer> e:map.entrySet())
+        {
+            if(maxfreq<e.getValue())
+            {
+                maxfreq=e.getValue();
+                set.clear();
+                set.add(e.getKey());
+                
+            }
+            else if (maxfreq==e.getValue())
+            {
+                set.add(e.getKey());
+            }
+        }
+        
+        return set.stream().mapToInt(Integer::intValue).toArray();
+        
+    }
+    
+    
+public void Traverse(TreeNode root,HashMap<Integer,Integer> map)
+{
+    if(root!=null)
+    {
+        map.put(root.val,map.getOrDefault(root.val,0)+1);
+        
+        Traverse(root.left,map);
+        Traverse(root.right,map);
+    }
+    return;
+}
+
+}
