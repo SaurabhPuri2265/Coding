@@ -1,0 +1,83 @@
+//Solution 1 (MINE)
+
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    List<TreeNode> l1=new ArrayList<>();
+    List<TreeNode> l2=new ArrayList<>();
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        
+        Helper(root,p,q,new ArrayList<TreeNode>());
+        
+        int i=0,j=0;
+        TreeNode prev=null;
+        
+        System.out.println(l1);
+        System.out.println(l2);
+        
+        while(i<l1.size() && j<l2.size())
+        {
+            if(l1.get(i).val!=l2.get(j).val)
+                return prev;
+            
+            prev=l1.get(i++);
+            j++;
+        }
+        
+        return prev;
+    }
+    
+    public void Helper(TreeNode root, TreeNode p, TreeNode q,List<TreeNode> l)
+    {
+        if(root==null)
+            return;
+        l.add(root);
+        if(root.val==p.val)
+            l1.addAll(l);
+        if(root.val==q.val)
+            l2.addAll(l);
+        
+            Helper(root.left,p,q,l);
+            Helper(root.right,p,q,l);
+            l.remove(l.size()-1);
+    }
+}
+
+
+//Solution 2(OPTIMISED)
+
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        
+        if(root==null)
+            return null;
+        
+        if(root==p || root==q)
+            return root;
+        
+        TreeNode l= lowestCommonAncestor(root.left,p,q);
+        TreeNode r= lowestCommonAncestor(root.right,p,q);
+        
+        if(l!=null && r!=null)
+            return root;
+        if(l==null)
+            return r;
+        return l;
+    }
+}
