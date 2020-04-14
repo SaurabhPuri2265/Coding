@@ -1,0 +1,51 @@
+Given two strings S and T, return if they are equal when both are typed into empty text editors. # means a backspace character.
+
+Note that after backspacing an empty text, the text will continue empty.
+
+Example 1:
+
+Input: S = "ab#c", T = "ad#c"
+Output: true
+Explanation: Both S and T become "ac".
+Example 2:
+
+Input: S = "ab##", T = "c#d#"
+Output: true
+Explanation: Both S and T become "".
+
+class Solution {
+    public boolean backspaceCompare(String S, String T) {
+        String s1=Helper(S);
+        String s2=Helper(T);
+        
+        return s1.equals(s2);
+        
+    }
+    
+    public String Helper(String S){
+        int i=S.length()-1;
+        int c=0;
+        String s1="";
+        while(i>=0)
+        {
+            if(c>0 && S.charAt(i)!='#')
+            {
+                i--;
+                c--;
+            }
+            else if(S.charAt(i)=='#')
+            {
+                while(i>=0 && S.charAt(i)=='#'){
+                    c++;
+                    i--;
+                }
+            }
+            else
+            {
+                s1+=S.charAt(i);
+                i--;
+            }
+        }
+        return s1;
+    }
+}
