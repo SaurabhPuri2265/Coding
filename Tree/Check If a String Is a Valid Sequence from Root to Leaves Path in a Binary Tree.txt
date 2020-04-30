@@ -1,0 +1,59 @@
+Given a binary tree where each path going from the root to any leaf form a valid sequence, check if a given string is a valid sequence in such binary tree. 
+
+We get the given string from the concatenation of an array of integers arr and the concatenation of all values of the nodes along a path results in a sequence in the given binary tree.
+
+
+Example 1 Input: root = [0,1,0,0,1,0,null,null,1,0,0], arr = [0,1,0,1]
+Output: true
+Explanation: 
+The path 0 -> 1 -> 0 -> 1 is a valid sequence (green color in the figure). 
+Other valid sequences are: 
+0 -> 1 -> 1 -> 0 
+0 -> 0 -> 0
+
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public boolean isValidSequence(TreeNode root, int[] arr) {
+        if(root==null || root.val!=arr[0])
+            return false;
+        
+        int l=0,r=arr.length-1;
+        
+        return Helper(root,arr,l,r);
+        
+    }
+    
+    public boolean Helper(TreeNode root,int[] arr,int l,int r){
+        
+        if(l>r || root==null)return false;
+        
+        if(isLeaf(root) && l<r)return false;
+        
+        if(isLeaf(root) && root.val==arr[l])return true;
+        
+        if(root.val==arr[l])
+            return true && (Helper(root.left,arr,l+1,r) || Helper(root.right,arr,l+1,r));
+        
+        return false;
+        
+    }
+    
+    
+    public boolean isLeaf(TreeNode root){
+        return root.left==null && root.right==null;
+    }
+}
