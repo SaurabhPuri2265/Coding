@@ -1,0 +1,74 @@
+The n-queens puzzle is the problem of placing n queens on an n×n chessboard such that no two queens attack each other.
+Given an integer n, return the number of distinct solutions to the n-queens puzzle.
+
+Example:
+
+Input: 4
+Output: 2
+Explanation: There are two distinct solutions to the 4-queens puzzle as shown below.
+[
+ [".Q..",  // Solution 1
+  "...Q",
+  "Q...",
+  "..Q."],
+
+ ["..Q.",  // Solution 2
+  "Q...",
+  "...Q",
+  ".Q.."]
+]
+
+
+
+class Solution {
+    int solutions=0;
+    public int totalNQueens(int n) {
+        int[][] board=new int[n][n];
+        
+        NQ(board,0,n);
+        
+        return solutions;
+        
+    }
+    
+    public boolean isSafe(int x,int y,int[][] board,int n){
+        
+        for(int i=0;i<y;i++)
+            if(board[x][i]==1)
+                return false;
+        
+        for (int i=x, j=y ; i >= 0 && j >= 0; i--, j--) 
+            if (board[i][j] == 1) 
+                return false; 
+  
+        /* Check lower diagonal on left side */
+        for (int i = x, j = y; j >= 0 && i < n; i++, j--) 
+            if (board[i][j] == 1) 
+                return false; 
+  
+        return true; 
+                
+        
+        
+    }
+    
+    public boolean NQ(int[][] board,int col,int n){
+        if(col>=n)
+        {
+            solutions++;
+        }
+        
+        for(int i=0;i<n;i++){
+            if(isSafe(i,col,board,n)){
+                board[i][col]=1;
+                if(NQ(board,col+1,n))
+                    return true;
+                board[i][col]=0;
+            }
+        }
+        
+        return false;
+        
+        
+    }
+}

@@ -1,0 +1,54 @@
+Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent.
+
+A mapping of digit to letters (just like on the telephone buttons) is given below. Note that 1 does not map to any letters.
+
+Example:
+
+Input: "23"
+Output: ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"].
+
+class Solution {
+    public List<String> letterCombinations(String digits) {
+        if(digits.length()==0)
+            return new ArrayList<>();
+        //We use a queue yo generate combinations of letters.
+        String[] table = { "", "", "abc", "def", "ghi", "jkl",  //Letters on keypad wrt digits
+            "mno", "pqrs", "tuv", "wxyz" }; 
+        
+        List<String> list=genComb(table,digits);
+        
+        return list;
+    }
+    
+    public List<String> genComb(String[] table,String digits){
+        
+        ArrayList<String> list=new ArrayList<>();
+        
+        Queue<String> q=new LinkedList<>();
+        
+        q.add("");
+        
+        int wordLength=digits.length();
+        
+        while(q.size()>0){
+            String temp=q.remove();
+            
+            if(temp.length()==wordLength)
+                list.add(temp);
+            else
+            {
+                char c = digits.charAt(temp.length());
+                System.out.println(c);
+                int idx=Character.getNumericValue(c); 
+                System.out.println(idx);
+                String val=table[idx];
+                for(int i=0;i<val.length();i++)
+                {
+                    q.add(temp+val.charAt(i));             
+                }
+       
+            }
+            }
+        return list;
+    }
+}

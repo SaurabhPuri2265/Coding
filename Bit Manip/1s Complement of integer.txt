@@ -1,0 +1,14 @@
+Given a positive integer, output its complement number. The complement strategy is to flip the bits of its binary representation.
+
+class Solution {
+    public int findComplement(int num) {
+        
+        //Find Number of bits
+        int bits=(int)(Math.floor(Math.log(num) / 
+                             Math.log(2))) + 1; 
+        
+        //xor with 2^bits with num
+        return ((1<<bits)-1)^num;
+        
+    }
+}
