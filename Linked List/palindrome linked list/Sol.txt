@@ -31,3 +31,72 @@ class Solution {
         return true;
     }
 }
+
+--------------------------------------------------------------------------------------------------------------
+
+//O(1) space
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public boolean isPalindrome(ListNode head) {
+        if(head==null || head.next==null)
+            return true;
+        ListNode curr=head;
+        
+        ListNode temp=head.next;
+        ListNode temp1=head;
+        
+        while(temp!=null && temp.next!=null)
+        {
+            
+            temp=temp.next.next;
+            temp1=temp1.next;
+        }
+        
+        if(temp!=null)
+            temp1=temp1.next;
+        
+        ListNode rev=reverse(temp1);
+        
+        System.out.println(rev.val);
+        
+        while(rev!=null)
+        {
+            if(head.val!=rev.val)return false;
+            head=head.next;
+            rev=rev.next;
+            
+        }
+        
+        
+        return true;
+    }
+    
+    
+    public ListNode reverse(ListNode head)
+    {
+        if(head==null || head.next==null)
+            return head;
+        ListNode prev=null;
+        ListNode curr=head;
+        
+        while(curr!=null)
+        {
+            ListNode temp=curr.next;
+            curr.next=prev;
+            prev=curr;
+            curr=temp;
+            
+        }
+        return prev;
+    }
+}
