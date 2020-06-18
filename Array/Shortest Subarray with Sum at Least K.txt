@@ -1,0 +1,47 @@
+Return the length of the shortest, non-empty, contiguous subarray of A with sum at least K.
+
+If there is no non-empty subarray with sum at least K, return -1.
+
+ 
+
+Example 1:
+
+Input: A = [1], K = 1
+Output: 1
+Example 2:
+
+Input: A = [1,2], K = 4
+Output: -1
+Example 3:
+
+Input: A = [2,-1,2], K = 3
+Output: 3
+
+--------------------------------------------------------------------------------------
+
+class Solution {
+    public int shortestSubarray(int[] A, int K) {
+        int n = A.length;
+        int min = n+1;
+        Deque<Integer> dq = new ArrayDeque<>();
+        int[] arr = new int[n+1];
+        for(int i=0;i<n;i++){
+            arr[i+1] = arr[i]+A[i];
+        }
+        //goal is: insert elements on increasing order on queue
+        
+        for(int i=0;i<=n;i++){
+            //find the distance from the front of the queue
+            while(!dq.isEmpty() && arr[i]-arr[dq.peekFirst()] >=K){
+                min = Math.min(min,i-dq.pollFirst());
+            }
+            //maintaing the increasing order from the last of the queue
+            while(!dq.isEmpty() && arr[i]-arr[dq.peekLast()] <=0){
+                dq.pollLast();
+            }
+            dq.offer(i);
+        }
+        return min==n+1?-1:min;
+        
+    }
+}
