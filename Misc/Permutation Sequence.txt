@@ -1,0 +1,43 @@
+The set [1,2,3,...,n] contains a total of n! unique permutations.
+
+By listing and labeling all of the permutations in order, we get the following sequence for n = 3:
+
+"123"
+"132"
+"213"
+"231"
+"312"
+"321"
+Given n and k, return the kth permutation sequence.
+
+----------------------------------------------------------------------------------------------------------------]]
+
+class Solution {
+   public String getPermutation(int n, int k) {
+    List<Integer> nums = new LinkedList<>();
+    for (int i = 1; i <= n; i++) {
+        nums.add(i);
+    }
+    String ret = "";
+    k--;
+    while (!nums.isEmpty()) {
+        int f = fact(n-1);
+        int i = k / f;
+        System.out.println(nums);
+        System.out.println(k+":"+i+":"+f);
+        ret += nums.get(i).toString();
+        nums.remove(i);
+        k -= k/f*f;
+        n--;
+    }
+    return ret;
+}
+
+private int fact(int n) {
+    int ret = 1;
+    for (int i = 1; i <= n; i++) {
+        ret *= i;
+    }
+    return ret;
+}
+}
