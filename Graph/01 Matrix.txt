@@ -1,0 +1,101 @@
+Given a matrix consists of 0 and 1, find the distance of the nearest 0 for each cell.
+
+The distance between two adjacent cells is 1.
+
+ 
+
+Example 1:
+
+Input:
+[[0,0,0],
+ [0,1,0],
+ [0,0,0]]
+
+Output:
+[[0,0,0],
+ [0,1,0],
+ [0,0,0]]
+Example 2:
+
+Input:
+[[0,0,0],
+ [0,1,0],
+ [1,1,1]]
+
+Output:
+[[0,0,0],
+ [0,1,0],
+ [1,2,1]]
+]
+
+-------------------------------------------------------------------------------------------------------------
+
+class Solution {
+    public int[][] updateMatrix(int[][] matrix) {
+        
+          /**
+     *  0 1 1    0 1 2    0 1 2    0 1 2 
+        1 1 1 -> 1 2 2 -> 1 2 3 -> 1 2 3 
+        1 1 1    2 2 2    2 3 3    2 3 4
+        
+        0 0 0    0 0 0
+        0 1 0 -> 0 1 0 
+        1 1 1    1 2 1
+     */
+        
+        
+        int m=matrix.length;
+        if(m==0)return matrix;
+        
+        int n=matrix[0].length;
+      //  int[][] dist=new int[m][n];
+        
+        Queue<Pair> q=new LinkedList<>();
+        
+        for(int i=0;i<m;i++)
+            for(int j=0;j<n;j++)
+            {
+                if(matrix[i][j]==0)
+                {
+                    q.add(new Pair(i,j));
+                }
+                else
+                    matrix[i][j]=Integer.MAX_VALUE;
+            }
+        
+        
+         int[] dx = new int[]{0, -1, 0 ,1};
+         int[] dy = new int[]{1, 0, -1, 0};
+        
+        while(!q.isEmpty())
+        {
+            Pair p=q.remove();
+            for(int i=0;i<4;i++)
+            {
+                int new_r=p.row+dx[i];
+                int new_c=p.col+dy[i];
+                
+                if (new_r >= 0 && new_c >= 0 && new_r < m && new_c < n){
+                    if(matrix[new_r][new_c]>matrix[p.row][p.col]+1){
+                        matrix[new_r][new_c]=matrix[p.row][p.col]+1;
+                        q.add(new Pair(new_r,new_c));
+                    }
+                }
+            }
+        }
+        
+        return matrix;
+        
+    }
+    
+    
+    class Pair{
+        int row;
+        int col;
+        
+        Pair(int row,int col){
+            this.row=row;
+            this.col=col;
+        }
+    }
+}

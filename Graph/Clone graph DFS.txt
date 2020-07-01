@@ -1,0 +1,20 @@
+public Node cloneGraph(Node node) {
+        if(node == null) return node;
+        Map<Node, Node> map = new HashMap<>();
+        
+        dfs(map, node);
+        return map.get(node);
+    }
+    
+    public Node dfs(Map<Node, Node> map, Node node){
+        if(map.containsKey(node)) return map.get(node);
+        
+        map.put(node, new Node(node.val));
+        
+        for(Node nei: node.neighbors){
+            map.get(node).neighbors.add(dfs(map, nei));
+            
+        }
+        
+        return map.get(node);
+    }
