@@ -1,0 +1,69 @@
+Given a binary tree, return all duplicate subtrees. For each kind of duplicate subtrees, you only need to return the root node of any one of them.
+
+Two trees are duplicate if they have the same structure with same node values.
+
+Example 1:
+
+        1
+       / \
+      2   3
+     /   / \
+    4   2   4
+       /
+      4
+The following are two duplicate subtrees:
+
+      2
+     /
+    4
+and
+
+    4
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    HashMap<String,Integer> map=new HashMap<>();
+    List<TreeNode> list=new ArrayList<>();
+    public List<TreeNode> findDuplicateSubtrees(TreeNode root) {
+       
+        
+        if(root==null)
+            return list;
+        
+        dfs(root);
+        
+        //System.out.println(map);
+        
+        
+        return list;
+        
+    }
+    
+    public String dfs(TreeNode root)
+    {
+        if(root==null)
+            return "";
+        
+       String pattern =root.val + "," + dfs(root.left) + "," + dfs(root.right);  
+        map.put(pattern,map.getOrDefault(pattern,0)+1);
+        if(map.get(pattern)==2)
+            list.add(root);
+        return pattern;
+    }
+}
